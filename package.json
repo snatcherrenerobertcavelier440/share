@@ -1,0 +1,44 @@
+{
+  "name": "share",
+  "version": "0.0.1",
+  "description": "Temporary, resumable file shares on your own Cloudflare account.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --local --port 8796",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "dry-run": "wrangler deploy --dry-run --outdir dist",
+    "browser:e2e": "node scripts/browser-e2e.mjs",
+    "check": "bun run typecheck && bun run test && bun run dry-run"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.14.0",
+    "@cloudflare/workers-types": "^4.20260522.0",
+    "playwright": "^1.60.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.2",
+    "wrangler": "^4.94.0"
+  },
+  "engines": {
+    "bun": ">=1.3.0",
+    "node": ">=22"
+  },
+  "cloudflare": {
+    "bindings": {
+      "FILES": {
+        "description": "Private R2 bucket used for temporary uploaded files."
+      },
+      "TURNSTILE_SITE_KEY": {
+        "description": "Create a [Turnstile widget](https://developers.cloudflare.com/turnstile/get-started/) for your deployed hostname and paste its site key here. Share creation remains disabled until configured."
+      },
+      "TURNSTILE_SECRET_KEY": {
+        "description": "Paste the secret from the same Turnstile widget. It is stored as a Worker secret, never in source."
+      },
+      "PUBLIC_URL": {
+        "description": "Optional canonical public URL, for example `https://share.example.com`. Leave blank to use the request hostname."
+      }
+    }
+  }
+}

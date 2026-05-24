@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "share",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-04-28",
+  "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "vars": {
+    "MAX_SHARE_SIZE_BYTES": "67108864",
+    "MAX_ACTIVE_BYTES": "1073741824",
+    "MAX_CREATES_PER_HOUR": "5",
+    "PENDING_TTL_SECONDS": "3600",
+    "READY_TTL_SECONDS": "86400",
+    "DOWNLOAD_MULTIPLIER": "4",
+    "TURNSTILE_SITE_KEY": "",
+    "PUBLIC_URL": ""
+  },
+  "durable_objects": {
+    "bindings": [
+      { "name": "SHARES", "class_name": "ShareSession" },
+      { "name": "QUOTA", "class_name": "DemoQuota" }
+    ]
+  },
+  "migrations": [
+    { "tag": "v1", "new_sqlite_classes": ["ShareSession", "DemoQuota"] }
+  ],
+  "r2_buckets": [
+    { "binding": "FILES", "bucket_name": "share-files" }
+  ]
+}
